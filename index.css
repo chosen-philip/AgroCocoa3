@@ -1,0 +1,240 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-image: url(./photos/NSF_background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    z-index: 1;
+  }
+  
+  .nav-bar {
+    position: sticky;
+    opacity: 0.9;
+    color: #fff;
+    z-index: 10;
+    position: relative;
+    bottom: 80px;
+  }
+  
+  .nav-bar a:hover {
+    color: lightblue;
+  }
+  
+  .nav-bar li {
+    float: right;
+    padding: 20px;
+    font-size: 20px;
+    list-style: none;
+  }
+  
+  .nav-bar a {
+    text-decoration: none;
+    color: red;
+  }
+  
+  .logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 2px;
+    position: relative;
+    left: 8px;
+    top: 4px;
+    z-index: 1000;
+  }
+  
+  .button {
+    display: inline-block;
+    color: #fff;
+    background: coral;
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    top: 440px;
+    left: 550px;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  .WELCOME {
+    position: relative;
+    top: 150px;
+  }
+  
+  /* Hamburger Menu */
+  .menu-wrap {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: none;
+  }
+  
+  .menu-wrap .toggler {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    z-index: 2;
+    cursor: pointer;
+  }
+  
+  .menu-wrap .hamburger {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba( 13, 110, 139, 0.75);
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  
+  
+/* hamburger line */
+.menu-wrap .hamburger > div {
+  position: relative;
+  flex: none;
+  width: 100%;
+  height:2px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  }
+
+  /* hamburger lines-top & bottom */
+.menu-wrap .hamburger > div::before,
+.menu-wrap .hamburger > div::after {
+content:'' ;
+position: absolute;
+z-index: 1;
+top: -10px;
+width: 100%;
+height: 2px;
+background: inherit;
+}
+
+/* moves line down */
+.menu-wrap .hamburger > div::after {
+top: 10px;
+}
+  
+  .menu-wrap .toggler:checked + .hamburger div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .menu-wrap .toggler:checked + .hamburger div:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-wrap .toggler:checked + .hamburger div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  .menu-wrap .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:rgba( 13, 110, 139, 0.75);
+    display: flex;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform: scale(0);
+    transition: transform 0.4s ease;
+    visibility: hidden;
+  }
+  
+
+/* toggler animation */
+.menu-wrap .toggler:checked + .hamburger > div {
+  transform: rotate(135deg);
+  }
+  
+  /*turns line to x  */
+  .menu-wrap .toggler:checked + .hamburger > div:before,
+  .menu-wrap .toggler:checked + .hamburger > div:after              
+  {
+  top: 0;
+   transform: rotate(90deg);
+  }
+  
+  .menu-wrap .toggler:checked:hover + .hamburger > div {
+  transform: rotate(360deg);
+  }
+  
+  /* show menu */
+  .menu-wrap .toggler:checked ~ .menu{
+  visibility: visible;
+  }
+  .menu-wrap .toggler:checked ~ .menu > div {
+  transform: scale(1);
+  transition-duration: var(--menu-speed);
+  }
+  
+  .menu-wrap .toggler:checked ~ .menu > div > div {
+  opacity: 1;
+  transition: opacity 0.4s ease 0.4s;
+  } 
+
+  .menu-wrap .toggler:checked ~ .menu {
+    transform: scale(1);
+    visibility: visible;
+  }
+  
+  .menu-wrap .menu ul {
+    list-style: none;
+    text-align: center;
+  }
+  
+  .menu-wrap .menu ul li {
+    padding: 1rem;
+  }
+  
+  .menu-wrap .menu ul li a {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .nav-bar ul {
+      display: none;
+    }
+  
+    .menu-wrap {
+      display: block;
+    }
+  
+    .logo {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+    }
+  
+    .button {
+      margin: 20px auto;
+      left: auto;
+      top: 300px;
+      text-decoration: none;
+      position: relative;
+      left: 80px;
+    }
+  }
+  
+ 
